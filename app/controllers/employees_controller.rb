@@ -1,7 +1,10 @@
 class EmployeesController < ApplicationController
-  before_action :authenticate_user!
+
+  before_action :set_employee, only: [:show, :edit, :update, :destroy]
 
   def index
+    @employees = Employee.company
+
   end
 
   def new
@@ -25,11 +28,6 @@ class EmployeesController < ApplicationController
   private
 
   def set_employee
-
-  end
-
-  def set_company
-
   end
 
   def employee_params
