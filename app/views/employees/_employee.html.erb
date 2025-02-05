@@ -1,0 +1,12 @@
+ <tr>
+        <td><%= employee.name %></td>
+        <td><%= ((Time.zone.now - employee.birth_date.to_time) / 1.year).floor %></td>
+        <td><%= employee.id_number %></td>
+        <td><%= employee.role.try(:name) %></td>
+        <td><%= employee.department.try(:name) %></td>
+        <td>
+          <%= link_to "Ver", company_employee_path(@company, employee) %> |
+          <%= link_to "Editar", edit_company_employee_path(@company, employee) %> |
+          <%= link_to "Eliminar", company_employee_path(@company, employee), method: :delete, data: { confirm: "¿Estás seguro de eliminar este empleado?" } %>
+        </td>
+      </tr>

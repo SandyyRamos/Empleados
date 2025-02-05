@@ -1,0 +1,17 @@
+<h2 class= "m-5 text-center">Lista de Empleados <%= @company.name%></h2>
+
+<table class="text-center m-5 mx-auto">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Edad</th>
+      <th>Cédula</th>
+      <th>Cargo</th>
+      <th>Departamento</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @employees %>
+  </tbody>
+</table>
