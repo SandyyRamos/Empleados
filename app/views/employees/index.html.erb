@@ -2,18 +2,18 @@
   Lista de Empleados (<%= @company.employees.count %>)
 </h2>
 
-<div class="m-5 d-flex justify-content-end">
-  <%= form_tag company_employees_path(@company), method: :get, class: "form-inline" do %>
-    <div class="input-group">
-      <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Buscar" %>
-      <div class="input-group-append">
-        <%= submit_tag "Buscar", class: "btn btn-primary" %>
-      </div>
-    </div>
-  <% end %>
-</div>
-
 <div class="container">
+  <div class="d-flex justify-content-end align-items-center mb-3">
+    <%= form_tag company_employees_path(@company), method: :get, class: "form-inline" do %>
+      <div class="input-group">
+        <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Buscar" %>
+        <div class="input-group-append">
+          <%= submit_tag "Buscar", class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
   <div class="table-responsive bg-white shadow rounded p-4">
     <table class="table text-center mb-0">
       <thead class="border-bottom">
