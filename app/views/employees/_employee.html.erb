@@ -1,4 +1,5 @@
  <tr>
+        <td><%=  %></td>
         <td><%= employee.name %></td>
         <td><%= ((Time.zone.now - employee.birth_date.to_time) / 1.year).floor %></td>
         <td><%= employee.id_number %></td>

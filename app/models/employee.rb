@@ -5,12 +5,11 @@ class Employee < ApplicationRecord
 
   include PgSearch::Model
 
-  # Usando 'name' en lugar de 'role' y 'department' para buscar
   pg_search_scope :search_by_name_role_and_department,
                   against: [:name],
                   associated_against: {
-                    role: [:name],         # Buscar en el campo 'name' de la relación role
-                    department: [:name]    # Buscar en el campo 'name' de la relación department
+                    role: [:name],
+                    department: [:name]
                   },
                   using: {
                     tsearch: { prefix: true }
