@@ -1,5 +1,5 @@
 <h2 class="m-5 text-center">
-  Lista de Empleados (<%= @company.employees.count %>)
+  <strong>Lista de Empleados (<%= @company.employees.count %>)</strong>
 </h2>
 
 <div class="container">
@@ -8,7 +8,7 @@
       <div class="input-group">
         <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Buscar" %>
         <div class="input-group-append">
-          <%= submit_tag "Buscar", class: "btn btn-primary" %>
+          <%= submit_tag "Buscar", class: "btn btn-secondary" %>
         </div>
       </div>
     <% end %>
@@ -24,6 +24,7 @@
           <th class="p-3">Cédula</th>
           <th class="p-3">Cargo</th>
           <th class="p-3">Departamento</th>
+          <th class="p-3">Avatar</th>
           <th class="p-3">Acciones</th>
         </tr>
       </thead>

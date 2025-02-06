@@ -5,6 +5,7 @@
         <td><%= employee.id_number %></td>
         <td><%= employee.role.try(:name) %></td>
         <td><%= employee.department.try(:name) %></td>
+        <td><%= "" %></td>
         <td>
           <%= link_to company_employee_path(@company, employee), class: "btn btn-success" do %>
           <i class="fa-solid fa-binoculars"></i>
