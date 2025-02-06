@@ -3,9 +3,15 @@ class EmployeesController < ApplicationController
   before_action :set_company
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
 
+
   def index
-    @employees = @company.employees
+    @company = Company.find(params[:company_id]) 
+      @employees = @company.employees.search_by_name_role_and_department(params[:search])
+    else
+      @employees = @company.employees
+    end
   end
+
 
   def show
   end
