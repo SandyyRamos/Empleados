@@ -75,3 +75,9 @@ gem "faker"
 gem "simple_form"
 
 gem "pg_search"
+
+
+
+# gem 'activestorage-cloudinary-service'
+
+gem "dotenv-rails"
