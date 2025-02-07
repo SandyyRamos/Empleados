@@ -5,7 +5,8 @@
         <td><%= employee.id_number %></td>
         <td><%= employee.role.try(:name) %></td>
         <td><%= employee.department.try(:name) %></td>
-        <td><% if employee.avatar.attached? %> <%= image_tag employee.avatar, width: 150 %><% end %><td>
+        <td><% if employee.avatar.attached? %><%= cl_image_tag employee.avatar.key, width: 50, crop: :fill %>
+        <% else %>No tiene avatar<% end %></td>
 
         <td>
           <%= link_to company_employee_path(@company, employee), class: "btn btn-success" do %>

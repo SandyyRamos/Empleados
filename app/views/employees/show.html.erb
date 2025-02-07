@@ -1,15 +1,2 @@
+<h2 class="m-5 text-center"><strong>Información del empleado</strong></h2>
 
-<h1><%= @company.name %></h1>
-
-<%= link_to "Editar", edit_company_path(@company) %> |
-<%= link_to "Eliminar", @company, method: :delete, data: { confirm: "¿Estás seguro?" } %> |
-<%= link_to "Volver", companies_path %>
-
-<h2>Empleados</h2>
-<%= link_to "Agregar Empleado", new_company_employee_path(@company), class: "btn btn-success" %>
-
-<ul>
-  <% @company.employees.each do |employee| %>
-    <li><%= employee.name %> - <%= employee.role.name %></li>
-  <% end %>
-</ul>
