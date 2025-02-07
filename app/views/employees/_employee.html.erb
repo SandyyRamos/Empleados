@@ -1,5 +1,5 @@
  <tr>
-        <td><%=  %></td>
+        <td><%="#"%></td>
         <td><%= employee.name %></td>
         <td><%= ((Time.zone.now - employee.birth_date.to_time) / 1.year).floor %></td>
         <td><%= employee.id_number %></td>
@@ -9,13 +9,13 @@
         <% else %>No tiene avatar<% end %></td>
 
         <td>
-          <%= link_to company_employee_path(@company, employee), class: "btn btn-success" do %>
+          <%= link_to employee_path(employee), class: "btn btn-success" do %>
           <i class="fa-solid fa-binoculars"></i>
           <% end %>
-          <%= link_to edit_company_employee_path(@company, employee), class: "btn btn-warning" do %>
+          <%= link_to edit_employee_path(employee), class: "btn btn-warning" do %>
           <i class="fa-sharp fa-solid fa-pen-to-square"></i>
           <% end %>
-          <%= link_to company_employee_path(@company, employee), data: { turbo_method: :delete, turbo_confirm: '¿Estás seguro de eliminar este empleado?' }, class: "btn btn-danger" do %>
+          <%= link_to employee_path(employee), data: { turbo_method: :delete, turbo_confirm: '¿Estás seguro de eliminar este empleado?' }, class: "btn btn-danger" do %>
           <i class="fa-solid fa-trash-can"></i>
           <% end %>
         </td>

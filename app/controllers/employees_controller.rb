@@ -17,7 +17,9 @@ class EmployeesController < ApplicationController
   end
 
   def new
-    @employee = @company.employees.build
+    @employee = @company.employees.build  #creando una instancia vacia y al poner el build llena el numéro del papá pero a la vez agregando automáticamente el company_id
+    @company = Company.find(params[:company_id])
+
   end
 
   def create
@@ -49,13 +51,14 @@ class EmployeesController < ApplicationController
 
   def set_company
     @company = current_user.companies.find_by(id: params[:company_id])
-    redirect_to root_path, alert: "Compañía no encontrada" if @company.nil?
+    #redirect_to root_path, alert: "Compañía no encontrada" if @company.nil?
   end
 
 
   def set_employee
-    @employee = @company.employees.find_by(id: params[:id])
-    redirect_to company_employees_path(@company), alert: "Empleado no encontrado" if @employee.nil?
+    @employee = Employee.find(params[:id])
+    #@employee = @company.employees.find_by(id: params[:id]
+    #redirect_to company_employees_path(@company), alert: "Empleado no encontrado" if @employee.nil?
   end
 
 
