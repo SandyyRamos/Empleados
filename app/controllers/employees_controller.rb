@@ -19,15 +19,15 @@ class EmployeesController < ApplicationController
   def new
     @employee = @company.employees.build  #creando una instancia vacia y al poner el build llena el numéro del papá pero a la vez agregando automáticamente el company_id
     @company = Company.find(params[:company_id])
-
   end
 
   def create
     @employee = @company.employees.build(employee_params)
+
     if @employee.save
       redirect_to company_employees_path(@company), notice: "Empleado creado con éxito."
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -38,21 +38,26 @@ class EmployeesController < ApplicationController
     if @employee.update(employee_params)
       redirect_to employee_path(@employee), notice: "Empleado actualizado con éxito."
     else
-      render :edit
+      render :edit, status: :unprocessable_entity #422 error no se pudo procesar
     end
   end
 
+
   def destroy
     @employee.destroy
-    redirect_to employees_path(@employee), notice: "Empleado eliminado con éxito."
+    redirect_to company_employees_path(@employee.company), notice: "Empleado eliminado con éxito.", status: :see_other #El status de destroy redirección permanente o 301
   end
+
 
   private
 
   def set_company
-    @company = current_user.companies.find_by(id: params[:company_id])
-    #redirect_to root_path, alert: "Compañía no encontrada" if @company.nil?
+    @company = current_user.company # Se cambió de companies a company
+    redirect_to root_path, alert: "Compañía no encontrada" if @company.nil?
   end
+    #@company = current_user.companies.find_by(id: params[:company_id])
+    #redirect_to root_path, alert: "Compañía no encontrada" if @company.nil?
+
 
 
   def set_employee
@@ -66,3 +71,8 @@ class EmployeesController < ApplicationController
     params.require(:employee).permit(:name, :birth_date, :id_number, :role_id, :department_id, :avatar)
   end
 end
+
+
+#turbo stream es codigo de Javascript disfrazado de Ruby
+
+#alt z achicar texto ctrl + para agrandar

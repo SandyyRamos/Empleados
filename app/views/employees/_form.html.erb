@@ -1,7 +1,7 @@
-<div class="container d-flex justify-content-center align-items-center vh-100">
+<div class="container d-flex justify-content-center align-items-center vh-100"> <%# Esta instrucción es para conectar con un controlador de stimulus %>
   <div class="col-md-6 p-4 bg-white rounded shadow-lg">
     <h3 class="text-center mb-4">Información del empleado</h3>
-    <%= simple_form_for @employee, url: company_employees_path(@company) do |f| %>
+    <%= simple_form_for @employee, url: @employee.new_record? ? company_employees_path(@company) : employee_path(@employee) do |f| %>
       <div class="form-group">
         <%= f.input :name, label: "Nombre", required: false, input_html: { class: "form-control" }, label_html: { class: "font-weight-bold" } %>
       </div>
@@ -14,12 +14,18 @@
                       end_year: Date.today.year,
                       order: [:day, :month, :year],
                       label: false,
-                      input_html: { class: "form-control d-inline w-auto" } %>
+                      input_html: { class: "form-control d-inline w-auto" }, html5: true %>
+                      <%# html5 es para el calendario en la vista para uso moderno %>
         </div>
       </div>
 
+
       <div class="form-group">
         <%= f.input :id_number, label: "Cédula", required: false, input_html: { class: "form-control" }, label_html: { class: "font-weight-bold" } %>
+      </div>
+
+       <div class="form-group">
+        <%= f.association :department, label: "Departamento", prompt: "Selecciona un departamento", input_html: { class: "form-control" }, label_html: { class: "font-weight-bold" } %>
       </div>
 
       <div class="form-group">

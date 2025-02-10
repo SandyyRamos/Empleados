@@ -19,3 +19,6 @@ class Employee < ApplicationRecord
   validates :name, presence: true
   validates :id_number, presence: true, uniqueness: true
 end
+
+#Las asociones has many crean 17 métodos nuevos .build y .employees
+#Las asociones belongs to 7 métodos nuevos
