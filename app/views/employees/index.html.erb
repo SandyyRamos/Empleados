@@ -3,7 +3,10 @@
 </h2>
 
 <div class="container">
-  <div class="d-flex justify-content-end align-items-center mb-3">
+  <div class="d-flex justify-content-between align-items-center m-3">
+    <%= link_to new_company_employee_path(@company), class: "btn btn-success" do %>
+      <i class="fa-solid fa-user-plus"></i>
+    <% end %>
     <%= form_tag company_employees_path(@company), method: :get, class: "form-inline" do %>
       <div class="input-group">
         <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Buscar" %>

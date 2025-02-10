@@ -1,7 +1,7 @@
 <div class="container d-flex justify-content-center align-items-center vh-100">
   <div class="col-md-6 p-4 bg-white rounded shadow-lg">
     <h3 class="text-center mb-4">Información del empleado</h3>
-    <%= simple_form_for @employee do |f| %>
+    <%= simple_form_for @employee, url: company_employees_path(@company) do |f| %>
       <div class="form-group">
         <%= f.input :name, label: "Nombre", required: false, input_html: { class: "form-control" }, label_html: { class: "font-weight-bold" } %>
       </div>
