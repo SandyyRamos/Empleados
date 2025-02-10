@@ -36,7 +36,7 @@ class EmployeesController < ApplicationController
 
   def update
     if @employee.update(employee_params)
-      redirect_to company_employee_path(@company, @employee), notice: "Empleado actualizado con éxito."
+      redirect_to employee_path(@employee), notice: "Empleado actualizado con éxito."
     else
       render :edit
     end

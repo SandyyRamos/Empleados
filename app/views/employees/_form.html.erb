@@ -1,17 +1,38 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <%= simple_form_for employee_path(@employee) do |f| %>
-        <div class="form-group">
-          <%= "Hola" %>
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="col-md-6 p-4 bg-white rounded shadow-lg">
+    <h3 class="text-center mb-4">Información del empleado</h3>
+    <%= simple_form_for @employee do |f| %>
+      <div class="form-group">
+        <%= f.input :name, label: "Nombre", required: false, input_html: { class: "form-control" }, label_html: { class: "font-weight-bold" } %>
+      </div>
+
+      <div class="form-group">
+        <label class="font-weight-bold">Fecha de Nacimiento</label>
+        <div class="d-flex gap-2">
+          <%= f.input :birth_date, as: :date,
+                      start_year: Date.today.year - 100,
+                      end_year: Date.today.year,
+                      order: [:day, :month, :year],
+                      label: false,
+                      input_html: { class: "form-control d-inline w-auto" } %>
         </div>
-        <div class="form-group">
-          <%= f.input :avatar, as: :file, label: "Subir Avatar", input_html: { class: "form-control" } %>
-        </div>
-        <div class="form-group mt-3">
-          <%= f.submit "Guardar cambios", class: "btn btn-primary" %>
-        </div>
-      <% end %>
-    </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.input :id_number, label: "Cédula", required: false, input_html: { class: "form-control" }, label_html: { class: "font-weight-bold" } %>
+      </div>
+
+      <div class="form-group">
+        <%= f.input :role_id, collection: Role.all, label: "Cargo", prompt: "Seleccione un cargo", input_html: { class: "form-control" }, label_html: { class: "font-weight-bold" } %>
+      </div>
+
+      <div class="form-group">
+        <%= f.input :avatar, as: :file, label: "Subir Avatar", input_html: { class: "form-control" }, label_html: { class: "font-weight-bold" } %>
+      </div>
+
+      <div class="form-group mt-3 text-center">
+        <%= f.submit @employee.new_record? ? "Crear nuevo empleado" : "Guardar cambios", class: "btn btn-outline-success mx-1" %>
+      </div>
+    <% end %>
   </div>
 </div>

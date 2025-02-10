@@ -37,7 +37,7 @@
   <div class="mt-3">
     <%= link_to "Editar", edit_employee_path(@employee), class: "btn btn-outline-primary mx-1" %>
     <%= link_to "Eliminar", employee_path(@employee),
-        data: { turbo_method: :delete, turbo_confirm: "¿Seguro?" },
+        data: { turbo_method: :delete, turbo_confirm: "¿Estás seguro que deseas eliminar este empleado?" },
         class: "btn btn-outline-danger mx-1" %>
     <%= link_to "Volver", company_employees_path(@employee.company), class: "btn btn-outline-secondary mx-1" %>
   </div>
