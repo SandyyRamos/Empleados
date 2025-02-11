@@ -29,7 +29,7 @@
       </div>
 
       <div class="form-group">
-        <%= f.input :role_id, collection: Role.all, label: "Cargo", prompt: "Seleccione un cargo", input_html: { class: "form-control" }, label_html: { class: "font-weight-bold" } %>
+        <%= f.association :role, label: "Cargo", label: "Cargo", prompt: "Seleccione un cargo", input_html: { class: "form-control" }, label_html: { class: "font-weight-bold" } %>
       </div>
 
       <div class="form-group">
