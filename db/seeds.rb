@@ -26,10 +26,10 @@ departments = ["IT", "HR", "Finance", "Marketing"].map { |d| Department.create!(
 
 puts "Creando departamentos"
 
-10.times do
+30.times do
   Employee.create!(
     name: Faker::Name.name,
-    birth_date: "18/03/1991",
+    birth_date: Faker::Date.birthday(min_age: 18, max_age: 65),
     id_number: Faker::IdNumber.valid,
     company: company1,
     role: roles.sample,
@@ -37,10 +37,10 @@ puts "Creando departamentos"
   )
 end
 
-10.times do
+30.times do
   Employee.create!(
     name: Faker::Name.name,
-    birth_date: "18/03/1991",
+    birth_date: Faker::Date.birthday(min_age: 18, max_age: 65),
     id_number: Faker::IdNumber.valid,
     company: company2,
     role: roles.sample,
