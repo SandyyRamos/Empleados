@@ -6,11 +6,12 @@ class EmployeesController < ApplicationController
 
   def index
     @company = Company.find(params[:company_id])
-    @employees = if params[:search].present?
-      @company.employees.search_by_name_role_and_department(params[:search])
+    employees = if params[:search].present?
+      @company.employees.includes(:role, :department).search_by_name_role_and_department(params[:search])
     else
-      @company.employees
+      @company.employees.includes(:role, :department)
     end
+    @pagy, @employees = pagy(employees)
   end
 
   def show

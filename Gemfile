@@ -83,3 +83,5 @@ gem "pg_search"
 # gem 'activestorage-cloudinary-service'
 
 gem "cloudinary"
+
+gem "pagy"

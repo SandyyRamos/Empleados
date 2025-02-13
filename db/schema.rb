@@ -95,3 +95,4 @@ ActiveRecord::Schema[7.1].define(version: 2025_02_06_234259) do
   add_foreign_key "employees", "departments"
   add_foreign_key "employees", "roles"
 end
+

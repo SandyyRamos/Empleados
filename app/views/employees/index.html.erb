@@ -16,6 +16,7 @@
       </div>
     <% end %>
   </div>
+  <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %>
 
   <div class="table-responsive bg-white shadow rounded p-4">
     <table class="table text-center mb-0">
@@ -34,5 +35,6 @@
         <%= render @employees %>
       </tbody>
     </table>
+    <%= raw pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %> <%# El doble igual es lo que hace interpretar la etiqueta en html %>
   </div>
 </div>
