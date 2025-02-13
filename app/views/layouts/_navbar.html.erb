@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+<nav class="navbar navbar-expand-lg bg-white shadow-sm">
   <div class="container-fluid">
     <% if user_signed_in? && current_user.company %>
-      <span class="navbar-text ms-4 fs-3 fw-bold text-white">
+      <span class="navbar-text ms-4 fs-1 fw-bold text-dark">
         <%= current_user.company.name %>
       </span>
     <% end %>
@@ -11,21 +11,20 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav me-auto">
-
+      <ul class="navbar-nav ms-auto"> 
         <% if user_signed_in? && current_user.company %>
           <li class="nav-item">
-            <%= link_to 'Empleados', company_employees_path(current_user.company), class: 'nav-link fw-semibold text-white' %>
+            <%= link_to 'Empleados', company_employees_path(current_user.company), class: 'nav-link fw-semibold text-dark fs-5' %>
           </li>
         <% end %>
 
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to 'Cerrar sesión', destroy_user_session_path, data: {turbo_method: :delete}, class: 'nav-link text-danger fw-semibold' %>
+            <%= link_to 'Cerrar sesión', destroy_user_session_path, data: {turbo_method: :delete}, class: 'nav-link text-danger fw-semibold fs-5' %>
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to 'Iniciar sesión', new_user_session_path, class: 'nav-link fw-semibold text-white' %>
+            <%= link_to 'Iniciar sesión', new_user_session_path, class: 'nav-link fw-semibold text-dark fs-5' %>
           </li>
         <% end %>
 
