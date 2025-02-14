@@ -12,6 +12,13 @@ class EmployeesController < ApplicationController
       @company.employees.includes(:role, :department)
     end
     @pagy, @employees = pagy(employees)
+    respond_to do |format|
+      format.html
+      format.xlsx  #adentro van las instrucciones de la gema
+
+
+
+    end
   end
 
   def show

@@ -7,6 +7,9 @@
     <%= link_to new_company_employee_path(@company), class: "btn btn-success" do %>
       <i class="fa-solid fa-user-plus"></i>
     <% end %>
+     <%= link_to company_employees_path(@company, format: :xlsx), class: "btn btn-success" do %>
+      <i class="fa-solid fa-file-excel"></i>
+    <% end %>
     <%= form_tag company_employees_path(@company), method: :get, class: "form-inline" do %>
       <div class="input-group">
         <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Buscar" %>
@@ -16,25 +19,28 @@
       </div>
     <% end %>
   </div>
-  <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %>
+    <div class="d-flex justify-content-end m-4">
+      <%= raw pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %>
+      </div>
 
-  <div class="table-responsive bg-white shadow rounded p-4">
-    <table class="table text-center mb-0">
-      <thead class="border-bottom">
-        <tr>
-          <th class="p-3">Nombre</th>
-          <th class="p-3">Edad</th>
-          <th class="p-3">Cédula</th>
-          <th class="p-3">Cargo</th>
-          <th class="p-3">Departamento</th>
-          <th class="p-3">Avatar</th>
-          <th class="p-3">Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <%= render @employees %>
-      </tbody>
-    </table>
-    <%= raw pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %> <%# El doble igual es lo que hace interpretar la etiqueta en html %>
-  </div>
-</div>
+      <div class="table-responsive bg-white shadow rounded p-4">
+        <table class="table text-center mb-0">
+          <thead class="border-bottom">
+            <tr>
+              <th class="p-3">Nombre</th>
+              <th class="p-3">Edad</th>
+              <th class="p-3">Cédula</th>
+              <th class="p-3">Cargo</th>
+              <th class="p-3">Departamento</th>
+              <th class="p-3">Avatar</th>
+              <th class="p-3">Acciones</th>
+              </tr>
+              </thead>
+              <tbody>
+                <%= render @employees %>
+                </tbody>
+                </table>
+                <div class="d-flex justify-content-end m-4">
+                  <%= raw pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %> <%# El doble igual es lo que hace interpretar la etiqueta en html %>
+                  </div>
+                  </div>

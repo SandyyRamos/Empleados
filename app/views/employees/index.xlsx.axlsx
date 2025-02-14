@@ -1,0 +1,8 @@
+# package = Axlsx::Package.new
+  wb = xlsx_package.workbook
+  wb.add_worksheet(name: "Listado de Empleados") do |sheet|
+    sheet.add_row ["Name", "Birth_date", "Id_number", "Cargo", "Departamento"]
+    @employees.each do |employee|
+    sheet.add_row [employee.name, employee.birth_date, employee.id_number, employee.role.name, employee.department.name]
+    end
+  end

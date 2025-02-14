@@ -85,3 +85,7 @@ gem "pg_search"
 gem "cloudinary"
 
 gem "pagy"
+
+gem "caxlsx", "~> 4.2"
+
+gem "caxlsx_rails", "~> 0.6.4"
