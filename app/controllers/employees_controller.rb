@@ -11,13 +11,16 @@ class EmployeesController < ApplicationController
     else
       @company.employees.includes(:role, :department)
     end
-    @pagy, @employees = pagy(employees)
+    # @pagy, @employees = pagy(employees)
+
     respond_to do |format|
-      format.html
-      format.xlsx  #adentro van las instrucciones de la gema
-
-
-
+      format.html do
+        @pagy, @employees = pagy(employees) #Solo paginar para html
+      end
+      format.xlsx  do #adentro van las instrucciones de la gema
+        @employees = employees
+        response.headers["Content-Disposition"] = "attachment; filename=empleados.xlsx"
+      end
     end
   end
 
