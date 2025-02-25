@@ -21,6 +21,6 @@ rails db:migrate
 rails db:seed
 
 * Capturas
-![captura](public/imgagen1.png)
+![captura](public/imagen1.png)
 ![captura](public/imagen2.png)
 ![captura](public/imagen3.png)
