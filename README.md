@@ -6,19 +6,21 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
+ruby 3.3.5
 
 * System dependencies
-
-* Configuration
+bundle install
 
 * Database creation
+rails db:create
 
 * Database initialization
+rails db:migrate
 
-* How to run the test suite
+* Seeds
+rails db:seed
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Capturas
+![captura](public/imgagen1.png)
+![captura](public/imagen2.png)
+![captura](public/imagen3.png)
