@@ -1,13 +1,13 @@
 <div class="container d-flex justify-content-center align-items-center vh-100"> <%# Esta instrucción es para conectar con un controlador de stimulus conecta el codigo de Javascript con el html el data-controller %>
   <div class="col-md-6 p-4 bg-white rounded shadow-lg">
-    <h3 class="text-center mb-4">Información del empleado</h3>
+    <h3 class="text-center mb-4"><strong>Información del empleado</strong></h3>
     <%= simple_form_for @employee, url: @employee.new_record? ? company_employees_path(@company) : employee_path(@employee) do |f| %>
       <div class="form-group">
-        <%= f.input :name, label: "Nombre", required: false, input_html: { class: "form-control" }, label_html: { class: "font-weight-bold" } %>
+        <%= f.input :name, label: raw("<strong>Nombre</strong>"), required: false, input_html: { class: "form-control" }, label_html: { class: "font-weight-bold" } %>
       </div>
 
       <div class="form-group">
-        <label class="font-weight-bold">Fecha de Nacimiento</label>
+        <label class="font-weight-bold"><strong>Fecha de Nacimiento</strong></label>
         <div class="d-flex gap-2">
           <%= f.input :birth_date, as: :string,
                       start_year: Date.today.year - 100,
@@ -26,19 +26,19 @@
   <%# El controlador de stimulus permite crear codigo de Javascript para usarlo en Ruby on rails,si yo quiero ver funcionando el codigo de Javascript tengo que conectarlo con html %>
 
       <div class="form-group">
-        <%= f.input :id_number, label: "Cédula", required: false, input_html: { class: "form-control" }, label_html: { class: "font-weight-bold" } %>
+        <%= f.input :id_number, label: raw("<strong>Cédula</strong>"), required: false, input_html: { class: "form-control" }, label_html: { class: "font-weight-bold" } %>
       </div>
 
        <div class="form-group">
-        <%= f.association :department, label: "Departamento", prompt: "Selecciona un departamento", input_html: { class: "form-control" }, label_html: { class: "font-weight-bold" } %>
+        <%= f.association :department, label: raw("<strong>Departamento</strong>"), prompt: "Selecciona un departamento", input_html: { class: "form-control" }, label_html: { class: "font-weight-bold" } %>
       </div>
 
       <div class="form-group">
-        <%= f.association :role, label: "Cargo", label: "Cargo", prompt: "Seleccione un cargo", input_html: { class: "form-control" }, label_html: { class: "font-weight-bold" } %>
+        <%= f.association :role, label: raw("<strong>Cargo</strong>"), prompt: "Seleccione un cargo", input_html: { class: "form-control" }, label_html: { class: "font-weight-bold" } %>
       </div>
 
       <div class="form-group">
-        <%= f.input :avatar, as: :file, label: "Subir Avatar", input_html: { class: "form-control" }, label_html: { class: "font-weight-bold" } %>
+        <%= f.input :avatar, as: :file, label: raw("<strong>Subir Avatar</strong>"), input_html: { class: "form-control" }, label_html: { class: "font-weight-bold" } %>
       </div>
 
       <div class="form-group mt-3 text-center">
